@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #0C0C0C;
+  --bg-secondary: #111111;
+  --bg-tertiary: #161616;
+  --border-primary: #1e1e1e;
+  --border-secondary: #2a2a2a;
+  --text-primary: #D4CFC9;
+  --text-secondary: #888880;
+  --text-muted: #444440;
+  --gold: #C8A96A;
+  --gold-dim: rgba(200, 169, 106, 0.25);
+  --gold-faint: rgba(200, 169, 106, 0.08);
+  --red: #C05050;
+  --green: #4A8C6A;
+  --blue: #4A7AAA;
+
+  --font-display: var(--font-cormorant);
+  --font-mono: var(--font-dm-mono);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-border-primary: var(--border-primary);
+  --color-border-secondary: var(--border-secondary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-gold: var(--gold);
+  --color-gold-dim: var(--gold-dim);
+  --color-gold-faint: var(--gold-faint);
+  --color-red: var(--red);
+  --color-green: var(--green);
+  --color-blue: var(--blue);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-dm-mono), monospace;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: var(--gold-dim);
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: 2px;
 }

@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Resilience Intelligence Dashboard
 
-## Getting Started
+A strategic intelligence dashboard for Anchorstar x Mori Building that translates global events into company-specific strategic actions through a Gen Z behavioral lens. Built for Japanese corporate executives (35-50) as a decision-support tool that surfaces emerging risks and opportunities across resilience domains.
 
-First, run the development server:
+## Setup
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+No environment variables needed. All data is hardcoded — no database, no external APIs.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to extend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Add a new company
 
-## Learn More
+Edit `/data/companies.ts` and add a new `CompanyProfile` object to the `companies` array. Follow the existing format with sector, scores, and strategic priorities.
 
-To learn more about Next.js, take a look at the following resources:
+### Add a new event
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Edit `/data/events.ts` and add a new `Event` object with coordinates, resilience domains, urgency level, and industry relevance tags.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Add a new InsightCard
 
-## Deploy on Vercel
+Edit `/data/insights.ts` and add a new `InsightCard` linking an `eventId` to a `companyId` with analysis, risks, opportunities, and recommended actions. Missing combinations will show a generic fallback.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+vercel deploy
+```
