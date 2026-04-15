@@ -7,6 +7,7 @@ import { translations } from '@/data/translations'
 import { useRouter } from 'next/navigation'
 import { Event } from '@/types'
 import { useLiveEvents } from '@/lib/useLiveEvents'
+import { SentimentSection } from '@/components/SentimentSection'
 
 function DashboardContent() {
   const { selectedCompany, setSelectedEvent, setIsPanelOpen, lang } = useCompany()
@@ -130,6 +131,9 @@ function DashboardContent() {
             ))}
           </div>
         </div>
+
+        {/* Sentiment Analysis */}
+        <SentimentSection companyId={selectedCompany.id} />
       </div>
     </div>
   )
