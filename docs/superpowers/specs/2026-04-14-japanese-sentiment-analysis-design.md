@@ -132,6 +132,14 @@ User selects company on dashboard
   → User toggles Global/Japan to switch view (client-side filter, no re-fetch)
 ```
 
+## Mock Data (Development)
+
+Both API routes return hardcoded mock data until the real APIs are connected. This lets us build and validate the full UI without API keys.
+
+- `data/mockNews.ts` — ~4-5 mock articles per lens (global + japan) per company, with realistic titles, sources, dates, excerpts, and sentiment tags
+- `data/mockSentiment.ts` — mock sentiment summaries, scores, and themes per company
+- API routes check for env vars (`THE_NEWS_API_KEY`, `ANTHROPIC_API_KEY`) — if missing, return mock data instead of calling external services
+
 ## Error Handling
 
 - TheNewsAPI failure → empty articles, "No recent coverage" message
