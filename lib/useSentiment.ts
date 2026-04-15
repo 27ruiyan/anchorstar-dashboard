@@ -33,7 +33,7 @@ export function useSentiment(companyId: string) {
           const sentimentData = await sentimentRes.json()
           setSentiment(sentimentData.sentiment || null)
         }
-      } catch (err) {
+      } catch {
         if (isMounted) {
           setError('Failed to load sentiment data')
         }

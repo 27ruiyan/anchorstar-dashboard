@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 import { analyzeSentiment } from '@/lib/sentimentApi'
-import { mockNews } from '@/data/mockNews'
 import { mockSentiment } from '@/data/mockSentiment'
 import { companies } from '@/data/companies'
 
