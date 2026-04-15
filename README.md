@@ -9,7 +9,19 @@ npm install
 npm run dev
 ```
 
-No environment variables needed. All data is hardcoded — no database, no external APIs.
+Set up environment variables:
+
+```bash
+cp .env.example .env.local
+```
+
+Then add your NewsAPI key:
+
+```bash
+NEWS_API_KEY=your_newsapi_key_here
+```
+
+If the key is missing or the API fails, the app automatically falls back to local demo data.
 
 ## How to extend
 
@@ -20,6 +32,10 @@ Edit `/data/companies.ts` and add a new `CompanyProfile` object to the `companie
 ### Add a new event
 
 Edit `/data/events.ts` and add a new `Event` object with coordinates, resilience domains, urgency level, and industry relevance tags.
+
+### Live news data source
+
+The app now fetches live articles from [NewsAPI](https://newsapi.org/) via `/api/events` and maps them into the existing `Event` shape for map + dashboard display.
 
 ### Add a new InsightCard
 

@@ -9,10 +9,10 @@ import {
   ZoomableGroup,
 } from 'react-simple-maps'
 import { geoCentroid, geoArea } from 'd3-geo'
-import { events } from '@/data/events'
 import { translations } from '@/data/translations'
 import { useCompany } from './CompanyContext'
 import { Event, Urgency } from '@/types'
+import { useLiveEvents } from '@/lib/useLiveEvents'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
 
@@ -46,6 +46,7 @@ const SKIP_LABELS = new Set([
 
 export default function MapView() {
   const { selectedEvent, setSelectedEvent, setIsPanelOpen, lang } = useCompany()
+  const { events } = useLiveEvents()
   const t = translations[lang]
   const [hoveredEvent, setHoveredEvent] = useState<Event | null>(null)
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 })
